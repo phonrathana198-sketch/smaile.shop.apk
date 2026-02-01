@@ -1,0 +1,23 @@
+#request HTTP HTTPS 
+server {
+   server {
+    listen 80;
+    server_name smailshop.stoer.com www.smailshop.stoer.com;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    server_name smailshop.stoer.com www.smailshop.stoer.com;
+
+    ssl_certificate /etc/letsencrypt/live/smailshop.stoer.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/smailshop.stoer.com/privkey.pem;
+
+    root /var/www/smailshop;
+    index index.html index.php;
+
+    location /Api {
+        http://127.0.0.1:8080
+        try_files $uri $uri/ =404;
+    }
+}

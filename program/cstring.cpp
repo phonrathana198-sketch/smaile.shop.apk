@@ -14,11 +14,11 @@ void openUrl(const char *url)
     std::cout << "Opening secure URL: " << url << std::endl;
 
     // TODO: Add actual network code here (using HTTPS library)
-}
+   }
 
 int main()
 {
     openUrl("http://www.smlieshop.store.com");   // ⚠️ Warning: insecure
-    openUrl("https://www.smlieshop.store.com-apk");  // ✅ Secure
+    openUrl("https://www.smlieshop.store.com");  // ✅ Secure
     return 0;
 }
